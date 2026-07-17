@@ -191,20 +191,20 @@ for idx, title in enumerate(titles):
         })
 
 # Card Layout Calculations
-card_w = 48.0
-card_h = 48.0
-W_box = 48.0
-H_box = 48.0
-X_box_start = 0.0
-Y_box_start = 0.0
+card_w = 62.0
+card_h = 62.0
+W_box = 42.0
+H_box = 42.0
+X_box_start = (card_w - W_box) / 2.0  # 10.0px padding
+Y_box_start = (card_h - H_box) / 2.0  # 10.0px padding
 
 # Horizontal spacing calculations
-# Fill width of that part: from x=20 to x=940 (total 920px span)
+# Align 13 container boxes (62px + 8px gap) centered inside the 920px canvas (x=20 to x=940)
 panel_w = 920.0
 N = len(tools)
-start_x = 20.0
-end_x = 940.0
-pitch = (end_x - start_x - card_w) / (N - 1) if N > 1 else 0.0
+gap_w = 8.0
+grid_w = N * card_w + (N - 1) * gap_w  # 902.0px total grid width
+start_x = 20.0 + (panel_w - grid_w) / 2.0  # 29.0px start coordinate
 
 ticker_elements = []
 
@@ -215,7 +215,7 @@ icon_filters = {
 
 # Generate all 13 icons in a single row (y = 20)
 for idx, tool in enumerate(tools):
-    x_offset = start_x + idx * pitch
+    x_offset = start_x + idx * (card_w + gap_w)
     scale = min(W_box / tool["v_w"], H_box / tool["v_h"])
     w_scaled = tool["v_w"] * scale
     h_scaled = tool["v_h"] * scale
@@ -227,6 +227,7 @@ for idx, tool in enumerate(tools):
     delay = 0.10 + idx * 0.06
     
     element = f"""      <g transform="translate({x_offset:.2f}, 20)">
+        <rect x="0" y="0" width="{card_w}" height="{card_h}" class="tui-border" />
         <g transform="translate({dx:.3f}, {dy:.3f}) scale({scale:.5f})"{filter_attr}>
           {tool["content"]}
         </g>

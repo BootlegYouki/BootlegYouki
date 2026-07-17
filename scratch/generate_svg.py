@@ -84,9 +84,13 @@ def get_github_languages(username, token):
     except Exception as e:
         print(f"Error calling GitHub GraphQL API for languages, using fallback: {e}")
         return {
-            "TypeScript": 520000,
-            "Rust": 310000,
-            "Svelte": 170000
+            "TypeScript": 249000,
+            "HTML": 238000,
+            "JavaScript": 162000,
+            "Svelte": 127000,
+            "CSS": 110000,
+            "PHP": 88000,
+            "Visual Basic .NET": 26000
         }
 
 # Get GITHUB_TOKEN and username from environment

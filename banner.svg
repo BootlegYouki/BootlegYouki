@@ -52,10 +52,10 @@
       }
       .tech-label {
         font-family: 'JetBrains-Mono', monospace;
-        font-size: 20px;
+        font-size: 28px;
         font-weight: bold;
         fill: #8b949e;
-        letter-spacing: 2px;
+        letter-spacing: 3px;
       }
 
       @media (prefers-color-scheme: light) {
@@ -113,8 +113,8 @@
     </style>
   </defs>
 
-  <!-- Centered TECH_STACK Label -->
-  <text x="480" y="262" class="tech-label" text-anchor="middle" dominant-baseline="central">TECH_STACK</text>
+  <!-- Centered TECH STACK Label -->
+  <text x="480" y="262" class="tech-label" text-anchor="middle" dominant-baseline="central">TECH STACK</text>
 
   <!-- Centered Name Group -->
   <g id="svgGroup" transform="translate(64, 72)">

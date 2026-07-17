@@ -267,9 +267,9 @@ for name, pct, color in processed_langs:
     
     # Draw legend dot + text
     circle = f'<circle cx="{current_legend_x}" cy="{box_y + 54}" r="5" fill="{color}" />'
-    text = f'<text x="{current_legend_x + 12}" y="{box_y + 58}" class="ticker-text">{name} {pct:.1f}%</text>'
+    text = f'<text x="{current_legend_x + 12}" y="{box_y + 58}" class="ticker-text">{name}</text>'
     legend_items.extend([circle, text])
-    current_legend_x += len(name) * 7.5 + 68
+    current_legend_x += len(name) * 7.5 + 32
 
 segments_str = "\n    ".join(bar_segments)
 legend_str = "\n    ".join(legend_items)

@@ -296,13 +296,13 @@
     
     <!-- Segmented Progress Bar -->
     <g clip-path="url(#bar-clip)">
-      <rect x="20.00" y="372" width="228.72" height="10" fill="#3178c6" />
-    <rect x="248.72" y="372" width="219.17" height="10" fill="#e34c26" />
-    <rect x="467.89" y="372" width="148.81" height="10" fill="#f1e05a" />
-    <rect x="616.70" y="372" width="116.50" height="10" fill="#ff3e00" />
-    <rect x="733.20" y="372" width="101.17" height="10" fill="#563d7c" />
-    <rect x="834.37" y="372" width="80.72" height="10" fill="#4F5D95" />
-    <rect x="915.09" y="372" width="24.91" height="10" fill="#8b949e" />
+      <rect x="20.00" y="372" width="228.70" height="10" fill="#3178c6" />
+    <rect x="248.70" y="372" width="219.16" height="10" fill="#e34c26" />
+    <rect x="467.86" y="372" width="148.79" height="10" fill="#f1e05a" />
+    <rect x="616.65" y="372" width="116.49" height="10" fill="#ff3e00" />
+    <rect x="733.15" y="372" width="101.16" height="10" fill="#563d7c" />
+    <rect x="834.30" y="372" width="80.72" height="10" fill="#4F5D95" />
+    <rect x="915.02" y="372" width="24.98" height="10" fill="#8b949e" />
     </g>
     
     <!-- Legend dots and text -->

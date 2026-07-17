@@ -110,7 +110,7 @@ other_bytes = 0
 
 for name, val in sorted_langs:
     pct = (val / total_bytes) * 100
-    if pct >= 1.0:
+    if pct >= 1.0 and name not in ("Visual Basic .NET", "Visual Basic"):
         processed_langs.append((name, pct, LANGUAGE_COLORS.get(name, "#8b949e")))
     else:
         other_bytes += val
@@ -261,7 +261,8 @@ gap = 26
 item_widths = []
 total_legend_w = 0
 for name, pct, color in processed_langs:
-    item_w = 12 + len(name) * 7.5
+    # Estimate width: circle offset (12) + character length + space/pct suffix (approx 6 chars)
+    item_w = 12 + (len(name) + 6) * 7.5
     item_widths.append(item_w)
     total_legend_w += item_w
 total_legend_w += (len(processed_langs) - 1) * gap
@@ -279,7 +280,7 @@ for i, (name, pct, color) in enumerate(processed_langs):
     
     # Draw legend dot + text
     circle = f'<circle cx="{current_legend_x}" cy="{box_y + 40}" r="5" fill="{color}" />'
-    text = f'<text x="{current_legend_x + 12}" y="{box_y + 44}" class="ticker-text">{name}</text>'
+    text = f'<text x="{current_legend_x + 12}" y="{box_y + 44}" class="ticker-text">{name} {pct:.1f}%</text>'
     legend_items.extend([circle, text])
     current_legend_x += item_widths[i] + gap
 

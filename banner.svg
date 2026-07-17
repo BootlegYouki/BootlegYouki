@@ -18,7 +18,7 @@
         font-style: normal;
       }
       .tui-border {
-        stroke: #30363d;
+        stroke: #3D444D;
         stroke-width: 1.5;
         fill: none;
       }

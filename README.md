@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/BootlegYouki/BootlegYouki/main/banner.svg?v=6" alt="BootlegYouki" width="100%">
+  <img src="https://raw.githubusercontent.com/BootlegYouki/BootlegYouki/main/banner.svg?v=7" alt="BootlegYouki" width="100%">
 </p>
 
 <table width="100%">
@@ -52,6 +52,8 @@
   </tr>
 </table>
 
+
+
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=BootlegYouki&show_icons=true&theme=dark&bg_color=212830&title_color=ffffff&text_color=8b949e&border_color=30363d" alt="GitHub Stats" />
+  <img src="https://github-readme-stats.vercel.app/api?username=BootlegYouki&show_icons=true&theme=dark&bg_color=212830&title_color=ffffff&text_color=8b949e&border_color=3D444D" alt="GitHub Stats" />
 </p>

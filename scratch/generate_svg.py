@@ -97,27 +97,27 @@ username = repo_slug.split("/")[0] if repo_slug else "BootlegYouki"
 print(f"Loading GitHub language stats for {username}...")
 lang_stats = get_github_languages(username, github_token)
 
-# Sort and get top 3 languages
-top_langs = sorted(lang_stats.items(), key=lambda x: x[1], reverse=True)[:3]
-while len(top_langs) < 3:
-    top_langs.append(("None", 0))
+# Sort and process all languages representing >= 1.0%
+sorted_langs = sorted(lang_stats.items(), key=lambda x: x[1], reverse=True)
+total_bytes = sum(val for name, val in sorted_langs)
 
-sum_top_three = sum(val for name, val in top_langs)
-if sum_top_three == 0:
-    top_langs = [("TypeScript", 52), ("Rust", 31), ("Svelte", 17)]
-    sum_top_three = 100
+if total_bytes == 0:
+    sorted_langs = [("TypeScript", 52), ("Rust", 31), ("Svelte", 17)]
+    total_bytes = 100
 
-lang1_name, lang1_val = top_langs[0]
-lang2_name, lang2_val = top_langs[1]
-lang3_name, lang3_val = top_langs[2]
+processed_langs = []
+other_bytes = 0
 
-lang1_pct = (lang1_val / sum_top_three) * 100
-lang2_pct = (lang2_val / sum_top_three) * 100
-lang3_pct = (lang3_val / sum_top_three) * 100
+for name, val in sorted_langs:
+    pct = (val / total_bytes) * 100
+    if pct >= 1.0:
+        processed_langs.append((name, pct, LANGUAGE_COLORS.get(name, "#8b949e")))
+    else:
+        other_bytes += val
 
-lang1_color = LANGUAGE_COLORS.get(lang1_name, "#58a6ff")
-lang2_color = LANGUAGE_COLORS.get(lang2_name, "#58a6ff")
-lang3_color = LANGUAGE_COLORS.get(lang3_name, "#58a6ff")
+if other_bytes > 0:
+    other_pct = (other_bytes / total_bytes) * 100
+    processed_langs.append(("Other", other_pct, "#8b949e"))
 
 
 # Load fonts
@@ -243,44 +243,61 @@ ticker_elements_str = "\n".join(ticker_elements)
 box_x = 40
 box_y = 362
 box_w = 840
-box_h = 100
+box_h = 80
 
-# Progress bars x-start, width
-bar_x = 180
-bar_max_w = 480
+# Segmented Bar dimensions
+bar_x = 60
+bar_y = box_y + 18
+bar_w = 800
+bar_h = 12
 
-lang1_w = (lang1_pct / 100) * bar_max_w
-lang2_w = (lang2_pct / 100) * bar_max_w
-lang3_w = (lang3_pct / 100) * bar_max_w
+bar_segments = []
+legend_items = []
+current_x = bar_x
+current_legend_x = bar_x
+
+for name, pct, color in processed_langs:
+    seg_w = (pct / 100) * bar_w
+    # Draw segment
+    bar_segments.append(
+        f'<rect x="{current_x:.2f}" y="{bar_y}" width="{seg_w:.2f}" height="{bar_h}" fill="{color}" />'
+    )
+    current_x += seg_w
+    
+    # Draw legend dot + text
+    circle = f'<circle cx="{current_legend_x}" cy="{box_y + 54}" r="5" fill="{color}" />'
+    text = f'<text x="{current_legend_x + 12}" y="{box_y + 58}" class="ticker-text">{name} {pct:.1f}%</text>'
+    legend_items.extend([circle, text])
+    current_legend_x += len(name) * 7.5 + 68
+
+segments_str = "\n    ".join(bar_segments)
+legend_str = "\n    ".join(legend_items)
 
 stats_panel_svg = f"""
   <!-- GitHub Stats Panel -->
   <g id="svgGroupStats">
     <!-- Outer Border -->
-    <rect x="{box_x}" y="{box_y}" width="{box_w}" height="{box_h}" class="tui-border" />
+    <rect x="{box_x}" y="{box_y}" width="{box_w}" height="{box_h}" class="tui-border" rx="6" />
     
-    <!-- Row 1 -->
-    <text x="{box_x + 20}" y="{box_y + 32}" class="ticker-text">{lang1_name}</text>
-    <rect x="{bar_x}" y="{box_y + 20}" width="{bar_max_w}" height="14" fill="#21262d" rx="2" />
-    <rect x="{bar_x}" y="{box_y + 20}" width="{lang1_w:.1f}" height="14" fill="{lang1_color}" rx="2" />
-    <text x="{bar_x + bar_max_w + 15}" y="{box_y + 32}" class="ticker-text">{lang1_pct:.1f}%</text>
+    <!-- Background track for the bar -->
+    <rect x="{bar_x}" y="{bar_y}" width="{bar_w}" height="{bar_h}" fill="#21262d" rx="3" />
     
-    <!-- Row 2 -->
-    <text x="{box_x + 20}" y="{box_y + 58}" class="ticker-text">{lang2_name}</text>
-    <rect x="{bar_x}" y="{box_y + 46}" width="{bar_max_w}" height="14" fill="#21262d" rx="2" />
-    <rect x="{bar_x}" y="{box_y + 46}" width="{lang2_w:.1f}" height="14" fill="{lang2_color}" rx="2" />
-    <text x="{bar_x + bar_max_w + 15}" y="{box_y + 58}" class="ticker-text">{lang2_pct:.1f}%</text>
+    <!-- Segmented Progress Bar -->
+    <g clip-path="url(#bar-clip)">
+      {segments_str}
+    </g>
     
-    <!-- Row 3 -->
-    <text x="{box_x + 20}" y="{box_y + 84}" class="ticker-text">{lang3_name}</text>
-    <rect x="{bar_x}" y="{box_y + 72}" width="{bar_max_w}" height="14" fill="#21262d" rx="2" />
-    <rect x="{bar_x}" y="{box_y + 72}" width="{lang3_w:.1f}" height="14" fill="{lang3_color}" rx="2" />
-    <text x="{bar_x + bar_max_w + 15}" y="{box_y + 84}" class="ticker-text">{lang3_pct:.1f}%</text>
+    <!-- Legend dots and text -->
+    {legend_str}
   </g>
 """
 
 svg_template = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 58 920 424" width="100%" height="100%" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
+    <!-- Clip path for segmented progress bar -->
+    <clipPath id="bar-clip">
+      <rect x="{bar_x}" y="{bar_y}" width="{bar_w}" height="{bar_h}" rx="3" />
+    </clipPath>
     <!-- Brighten filter for dark icons (e.g. SQLite) -->
     <filter id="icon-brighten" x="0%" y="0%" width="100%" height="100%">
       <feComponentTransfer>

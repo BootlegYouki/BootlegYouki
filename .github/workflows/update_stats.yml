@@ -30,7 +30,7 @@ jobs:
       - name: Run SVG Compiler
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python scratch/generate_svg.py
+        run: python scripts/generate_svg.py
 
       - name: Commit and Push Changes
         run: |

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/BootlegYouki/BootlegYouki/main/banner.svg?v=3" alt="BootlegYouki" width="100%">
+  <img src="https://raw.githubusercontent.com/BootlegYouki/BootlegYouki/main/banner.svg?v=4" alt="BootlegYouki" width="100%">
 </p>
 
 <table width="100%">

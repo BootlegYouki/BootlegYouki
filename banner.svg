@@ -297,32 +297,29 @@
     <!-- Segmented Progress Bar -->
     <g clip-path="url(#bar-clip)">
       <rect x="20.00" y="372" width="228.71" height="10" fill="#3178c6" />
-    <rect x="248.71" y="372" width="219.16" height="10" fill="#e34c26" />
-    <rect x="467.87" y="372" width="148.80" height="10" fill="#f1e05a" />
+    <rect x="248.71" y="372" width="219.17" height="10" fill="#e34c26" />
+    <rect x="467.88" y="372" width="148.80" height="10" fill="#f1e05a" />
     <rect x="616.67" y="372" width="116.50" height="10" fill="#ff3e00" />
     <rect x="733.17" y="372" width="101.16" height="10" fill="#563d7c" />
-    <rect x="834.33" y="372" width="80.72" height="10" fill="#4F5D95" />
-    <rect x="915.05" y="372" width="11.13" height="10" fill="#8b949e" />
-    <rect x="926.18" y="372" width="13.82" height="10" fill="#8b949e" />
+    <rect x="834.34" y="372" width="80.72" height="10" fill="#4F5D95" />
+    <rect x="915.06" y="372" width="24.94" height="10" fill="#8b949e" />
     </g>
     
     <!-- Legend dots and text -->
-    <circle cx="123.5" cy="402" r="5" fill="#3178c6" />
-    <text x="135.5" y="406" class="ticker-text">TypeScript</text>
-    <circle cx="236.5" cy="402" r="5" fill="#e34c26" />
-    <text x="248.5" y="406" class="ticker-text">HTML</text>
-    <circle cx="304.5" cy="402" r="5" fill="#f1e05a" />
-    <text x="316.5" y="406" class="ticker-text">JavaScript</text>
-    <circle cx="417.5" cy="402" r="5" fill="#ff3e00" />
-    <text x="429.5" y="406" class="ticker-text">Svelte</text>
-    <circle cx="500.5" cy="402" r="5" fill="#563d7c" />
-    <text x="512.5" y="406" class="ticker-text">CSS</text>
-    <circle cx="561.0" cy="402" r="5" fill="#4F5D95" />
-    <text x="573.0" y="406" class="ticker-text">PHP</text>
-    <circle cx="621.5" cy="402" r="5" fill="#8b949e" />
-    <text x="633.5" y="406" class="ticker-text">Visual Basic .NET</text>
-    <circle cx="787.0" cy="402" r="5" fill="#8b949e" />
-    <text x="799.0" y="406" class="ticker-text">Other</text>
+    <circle cx="48.75" cy="402" r="5" fill="#3178c6" />
+    <text x="60.75" y="406" class="ticker-text">TypeScript 24.9%</text>
+    <circle cx="206.75" cy="402" r="5" fill="#e34c26" />
+    <text x="218.75" y="406" class="ticker-text">HTML 23.8%</text>
+    <circle cx="319.75" cy="402" r="5" fill="#f1e05a" />
+    <text x="331.75" y="406" class="ticker-text">JavaScript 16.2%</text>
+    <circle cx="477.75" cy="402" r="5" fill="#ff3e00" />
+    <text x="489.75" y="406" class="ticker-text">Svelte 12.7%</text>
+    <circle cx="605.75" cy="402" r="5" fill="#563d7c" />
+    <text x="617.75" y="406" class="ticker-text">CSS 11.0%</text>
+    <circle cx="711.25" cy="402" r="5" fill="#4F5D95" />
+    <text x="723.25" y="406" class="ticker-text">PHP 8.8%</text>
+    <circle cx="816.75" cy="402" r="5" fill="#8b949e" />
+    <text x="828.75" y="406" class="ticker-text">Other 2.7%</text>
   </g>
 
 </svg>

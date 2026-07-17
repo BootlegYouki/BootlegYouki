@@ -190,7 +190,7 @@ ticker_elements_str = "\n".join(ticker_elements)
 
 # Stats Box dimensions
 box_x = 40
-box_y = 342
+box_y = 362
 box_w = 840
 box_h = 100
 
@@ -207,10 +207,6 @@ stats_panel_svg = f"""
   <g id="svgGroupStats">
     <!-- Outer Border -->
     <rect x="{box_x}" y="{box_y}" width="{box_w}" height="{box_h}" class="tui-border" />
-    
-    <!-- Legend Title -->
-    <rect x="{box_x + 20}" y="{box_y - 8}" width="150" height="16" class="legend-bg" />
-    <text x="{box_x + 25}" y="{box_y + 4}" class="tui-legend">[ GITHUB STATS ]</text>
     
     <!-- Row 1: Commits -->
     <text x="{box_x + 20}" y="{box_y + 32}" class="ticker-text">Commits</text>
@@ -232,7 +228,7 @@ stats_panel_svg = f"""
   </g>
 """
 
-svg_template = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 58 920 404" width="100%" height="100%" xmlns:xlink="http://www.w3.org/1999/xlink">
+svg_template = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 58 920 424" width="100%" height="100%" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
     <!-- Brighten filter for dark icons (e.g. SQLite) -->
     <filter id="icon-brighten" x="0%" y="0%" width="100%" height="100%">

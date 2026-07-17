@@ -299,18 +299,33 @@
     
     <!-- Segmented Progress Bar -->
     <g clip-path="url(#bar-clip)">
-      <rect x="60.00" y="380" width="416.00" height="12" fill="#3178c6" />
-    <rect x="476.00" y="380" width="248.00" height="12" fill="#dea584" />
-    <rect x="724.00" y="380" width="136.00" height="12" fill="#ff3e00" />
+      <rect x="60.00" y="380" width="198.89" height="12" fill="#3178c6" />
+    <rect x="258.89" y="380" width="190.59" height="12" fill="#e34c26" />
+    <rect x="449.47" y="380" width="129.40" height="12" fill="#f1e05a" />
+    <rect x="578.87" y="380" width="101.31" height="12" fill="#ff3e00" />
+    <rect x="680.17" y="380" width="87.97" height="12" fill="#563d7c" />
+    <rect x="768.14" y="380" width="70.19" height="12" fill="#4F5D95" />
+    <rect x="838.34" y="380" width="9.68" height="12" fill="#8b949e" />
+    <rect x="848.02" y="380" width="11.98" height="12" fill="#8b949e" />
     </g>
     
     <!-- Legend dots and text -->
     <circle cx="60" cy="416" r="5" fill="#3178c6" />
-    <text x="72" y="420" class="ticker-text">TypeScript 52.0%</text>
-    <circle cx="203.0" cy="416" r="5" fill="#dea584" />
-    <text x="215.0" y="420" class="ticker-text">Rust 31.0%</text>
-    <circle cx="301.0" cy="416" r="5" fill="#ff3e00" />
-    <text x="313.0" y="420" class="ticker-text">Svelte 17.0%</text>
+    <text x="72" y="420" class="ticker-text">TypeScript 24.9%</text>
+    <circle cx="203.0" cy="416" r="5" fill="#e34c26" />
+    <text x="215.0" y="420" class="ticker-text">HTML 23.8%</text>
+    <circle cx="301.0" cy="416" r="5" fill="#f1e05a" />
+    <text x="313.0" y="420" class="ticker-text">JavaScript 16.2%</text>
+    <circle cx="444.0" cy="416" r="5" fill="#ff3e00" />
+    <text x="456.0" y="420" class="ticker-text">Svelte 12.7%</text>
+    <circle cx="557.0" cy="416" r="5" fill="#563d7c" />
+    <text x="569.0" y="420" class="ticker-text">CSS 11.0%</text>
+    <circle cx="647.5" cy="416" r="5" fill="#4F5D95" />
+    <text x="659.5" y="420" class="ticker-text">PHP 8.8%</text>
+    <circle cx="738.0" cy="416" r="5" fill="#8b949e" />
+    <text x="750.0" y="420" class="ticker-text">Visual Basic .NET 1.2%</text>
+    <circle cx="933.5" cy="416" r="5" fill="#8b949e" />
+    <text x="945.5" y="420" class="ticker-text">Other 1.5%</text>
   </g>
 
 </svg>

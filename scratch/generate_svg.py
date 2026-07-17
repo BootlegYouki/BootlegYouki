@@ -244,13 +244,13 @@ ticker_elements_str = "\n".join(ticker_elements)
 box_x = 40
 box_y = 362
 box_w = 840
-box_h = 80
+box_h = 60
 
-# Segmented Bar dimensions
-bar_x = 60
-bar_y = box_y + 18
-bar_w = 800
-bar_h = 12
+# Segmented Bar dimensions (max width of the SVG: from x=20 to x=940)
+bar_x = 20
+bar_y = box_y + 10
+bar_w = 920
+bar_h = 10
 
 bar_segments = []
 legend_items = []
@@ -266,8 +266,8 @@ for name, pct, color in processed_langs:
     total_legend_w += item_w
 total_legend_w += (len(processed_langs) - 1) * gap
 
-# Start legend X coordinate centered
-current_legend_x = (box_x + box_w / 2) - (total_legend_w / 2)
+# Start legend X coordinate centered relative to the SVG center (480)
+current_legend_x = 480 - (total_legend_w / 2)
 
 for i, (name, pct, color) in enumerate(processed_langs):
     seg_w = (pct / 100) * bar_w
@@ -278,8 +278,8 @@ for i, (name, pct, color) in enumerate(processed_langs):
     current_x += seg_w
     
     # Draw legend dot + text
-    circle = f'<circle cx="{current_legend_x}" cy="{box_y + 54}" r="5" fill="{color}" />'
-    text = f'<text x="{current_legend_x + 12}" y="{box_y + 58}" class="ticker-text">{name}</text>'
+    circle = f'<circle cx="{current_legend_x}" cy="{box_y + 40}" r="5" fill="{color}" />'
+    text = f'<text x="{current_legend_x + 12}" y="{box_y + 44}" class="ticker-text">{name}</text>'
     legend_items.extend([circle, text])
     current_legend_x += item_widths[i] + gap
 
@@ -289,9 +289,6 @@ legend_str = "\n    ".join(legend_items)
 stats_panel_svg = f"""
   <!-- GitHub Stats Panel -->
   <g id="svgGroupStats">
-    <!-- Outer Border -->
-    <rect x="{box_x}" y="{box_y}" width="{box_w}" height="{box_h}" class="tui-border" rx="6" />
-    
     <!-- Background track for the bar -->
     <rect x="{bar_x}" y="{bar_y}" width="{bar_w}" height="{bar_h}" fill="#21262d" rx="3" />
     
@@ -305,7 +302,7 @@ stats_panel_svg = f"""
   </g>
 """
 
-svg_template = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 58 920 424" width="100%" height="100%" xmlns:xlink="http://www.w3.org/1999/xlink">
+svg_template = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 58 920 374" width="100%" height="100%" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
     <!-- Clip path for segmented progress bar -->
     <clipPath id="bar-clip">

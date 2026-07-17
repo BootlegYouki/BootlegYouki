@@ -238,17 +238,11 @@ for idx, tool in enumerate(tools):
     dy = Y_box_start + (H_box - h_scaled) / 2.0 - tool["v_y"] * scale
     
     filter_attr = f' filter="url(#{icon_filters[idx]})"' if idx in icon_filters else ""
-    delay = 0.10 + idx * 0.06
     
     element = f"""      <g transform="translate({x_offset:.2f}, 20)">
-        <g opacity="1">
-          <animate attributeName="opacity" values="0; 1; 1; 0; 0" keyTimes="0; 0.08; 0.75; 0.83; 1" dur="6s" begin="{delay:.2f}s" repeatCount="indefinite" />
-          <animateTransform attributeName="transform" type="translate" values="4.65,18.65; 0,0; 0,0; 4.65,18.65; 4.65,18.65" keyTimes="0; 0.08; 0.75; 0.83; 1" dur="6s" begin="{delay:.2f}s" repeatCount="indefinite" additive="sum" />
-          <animateTransform attributeName="transform" type="scale" values="0.85; 1; 1; 0.85; 0.85" keyTimes="0; 0.08; 0.75; 0.83; 1" dur="6s" begin="{delay:.2f}s" repeatCount="indefinite" additive="sum" />
-          <rect x="0" y="0" width="{card_w}" height="{card_h}" class="tui-border" />
-          <g transform="translate({dx:.3f}, {dy:.3f}) scale({scale:.5f})"{filter_attr}>
-            {tool["content"]}
-          </g>
+        <rect x="0" y="0" width="{card_w}" height="{card_h}" class="tui-border" />
+        <g transform="translate({dx:.3f}, {dy:.3f}) scale({scale:.5f})"{filter_attr}>
+          {tool["content"]}
         </g>
       </g>"""
     ticker_elements.append(element)

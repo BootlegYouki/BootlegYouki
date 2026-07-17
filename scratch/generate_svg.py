@@ -121,16 +121,17 @@ if other_bytes > 0:
 
 
 # Load fonts
-nippo_path = r"e:\Github\portfolio\src\assets\Nippo_Complete\Fonts\WEB\fonts\Nippo-Bold.woff2"
+script_dir = os.path.dirname(os.path.abspath(__file__))
+nippo_path = os.path.join(script_dir, "..", "fonts", "Nippo-Bold.woff2")
 with open(nippo_path, "rb") as f:
     nippo_base64 = base64.b64encode(f.read()).decode("utf-8")
 
-jb_path = r"E:\Github\portfolio\node_modules\@fontsource-variable\jetbrains-mono\files\jetbrains-mono-latin-wght-normal.woff2"
+jb_path = os.path.join(script_dir, "..", "fonts", "jetbrains-mono-latin-wght-normal.woff2")
 with open(jb_path, "rb") as f:
     jb_base64 = base64.b64encode(f.read()).decode("utf-8")
 
 # Read user SVGs from icons.md
-icons_file_path = r"e:\Github\profile\scratch\icons.md"
+icons_file_path = os.path.join(script_dir, "icons.md")
 with open(icons_file_path, "r", encoding="utf-8") as f:
     raw_content = f.read()
 
@@ -444,7 +445,8 @@ svg_template = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 58 920 42
 </svg>
 """
 
-with open(r"e:\Github\profile\banner.svg", "w", encoding="utf-8") as f:
+output_svg_path = os.path.join(script_dir, "..", "banner.svg")
+with open(output_svg_path, "w", encoding="utf-8") as f:
     f.write(svg_template)
 
 print("SVG Compiled Successfully to static layout!")

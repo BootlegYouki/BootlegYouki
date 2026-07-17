@@ -38,6 +38,11 @@
       .name-dot {
         fill: #ef4444;
         fill-rule: evenodd;
+        animation: blink 1.2s steps(2, start) infinite;
+      }
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
       }
       .tui-legend {
         font-family: 'JetBrains-Mono', monospace;

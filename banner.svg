@@ -104,8 +104,12 @@
   </defs>
 
   <!-- Outer TUI box border with gap for legend [USER] -->
-  <path d="M 55 20 L 20 20 L 20 260 L 940 260 L 940 20 L 120 20" class="tui-border" />
+  <path d="M 55 20 L 20 20 L 20 400 L 940 400 L 940 20 L 120 20" class="tui-border" />
   <text x="60" y="18" class="tui-legend" dominant-baseline="central">[USER]</text>
+
+  <!-- Centered Horizontal Divider with gap for centered [TECH_STACK] legend -->
+  <path d="M 20 280 L 425 280 M 535 280 L 940 280" class="tui-border" />
+  <text x="480" y="280" class="tui-legend" text-anchor="middle" dominant-baseline="central">[TECH_STACK]</text>
 
   <!-- Centered Name Group -->
   <g id="svgGroup" transform="translate(64, 72)">
@@ -146,11 +150,8 @@
     <text x="0" y="30" class="name-sub anim-text-3">Designer</text>
   </g>
 
-  <!-- Horizontal Scrolling Ticker Panel with gap for legend [TECH_STACK] -->
+  <!-- Horizontal Scrolling Ticker Panel -->
   <g id="svgGroupTicker" transform="translate(20, 280)">
-    <path d="M 35 0 L 0 0 L 0 120 L 920 120 L 920 0 L 150 0" class="tui-border" />
-    <text x="40" y="-1" class="tui-legend" dominant-baseline="central">[TECH_STACK]</text>
-    
       <g transform="translate(30.00, 32)">
         <rect x="0" y="0" width="56.0" height="56.0" class="tui-border" />
         <g transform="translate(12.000, 13.750) scale(0.12500)">

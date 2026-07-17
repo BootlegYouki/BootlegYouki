@@ -226,14 +226,8 @@ for idx, tool in enumerate(tools):
     delay = 0.10 + idx * 0.06
     
     element = f"""      <g transform="translate({x_offset:.2f}, 20)">
-        <g opacity="0">
-          <animate attributeName="opacity" values="0; 1; 1; 0; 0" keyTimes="0; 0.08; 0.75; 0.83; 1" dur="6s" begin="{delay:.2f}s" repeatCount="indefinite" />
-          <animateTransform attributeName="transform" type="translate" values="4.65,18.65; 0,0; 0,0; 4.65,18.65; 4.65,18.65" keyTimes="0; 0.08; 0.75; 0.83; 1" dur="6s" begin="{delay:.2f}s" repeatCount="indefinite" additive="sum" />
-          <animateTransform attributeName="transform" type="scale" values="0.85; 1; 1; 0.85; 0.85" keyTimes="0; 0.08; 0.75; 0.83; 1" dur="6s" begin="{delay:.2f}s" repeatCount="indefinite" additive="sum" />
-          <rect x="0" y="0" width="{card_w}" height="{card_h}" class="tui-border" />
-          <g transform="translate({dx:.3f}, {dy:.3f}) scale({scale:.5f})"{filter_attr}>
-            {tool["content"]}
-          </g>
+        <g transform="translate({dx:.3f}, {dy:.3f}) scale({scale:.5f})"{filter_attr}>
+          {tool["content"]}
         </g>
       </g>"""
     ticker_elements.append(element)
@@ -347,7 +341,7 @@ svg_template = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 58 920 37
       .name-dot {{
         fill: #ef4444;
         fill-rule: evenodd;
-        animation: blink 1.2s steps(2, start) infinite;
+        animation: blink 1.2s ease-in-out infinite;
       }}
       @keyframes blink {{
         0%, 100% {{ opacity: 1; }}

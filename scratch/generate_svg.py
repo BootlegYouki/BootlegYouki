@@ -473,3 +473,21 @@ with open(output_svg_path, "w", encoding="utf-8") as f:
     f.write(svg_template)
 
 print("SVG Compiled Successfully to static layout!")
+
+# Bump cache-busting version in README.md
+readme_path = os.path.join(script_dir, "..", "README.md")
+if os.path.exists(readme_path):
+    with open(readme_path, "r", encoding="utf-8") as f:
+        readme_content = f.read()
+    
+    match = re.search(r"\?v=(\d+)", readme_content)
+    if match:
+        old_version = match.group(1)
+        new_version = str(int(old_version) + 1)
+        new_content = readme_content.replace(f"?v={old_version}", f"?v={new_version}")
+        with open(readme_path, "w", encoding="utf-8") as f:
+            f.write(new_content)
+        print(f"README.md version bumped to v={new_version}")
+    else:
+        print("Could not find version parameter in README.md")
+

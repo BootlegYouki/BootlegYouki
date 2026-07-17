@@ -255,9 +255,21 @@ bar_h = 12
 bar_segments = []
 legend_items = []
 current_x = bar_x
-current_legend_x = bar_x
 
+# Pre-calculate item widths and total width of legend to center it
+gap = 26
+item_widths = []
+total_legend_w = 0
 for name, pct, color in processed_langs:
+    item_w = 12 + len(name) * 7.5
+    item_widths.append(item_w)
+    total_legend_w += item_w
+total_legend_w += (len(processed_langs) - 1) * gap
+
+# Start legend X coordinate centered
+current_legend_x = (box_x + box_w / 2) - (total_legend_w / 2)
+
+for i, (name, pct, color) in enumerate(processed_langs):
     seg_w = (pct / 100) * bar_w
     # Draw segment
     bar_segments.append(
@@ -269,7 +281,7 @@ for name, pct, color in processed_langs:
     circle = f'<circle cx="{current_legend_x}" cy="{box_y + 54}" r="5" fill="{color}" />'
     text = f'<text x="{current_legend_x + 12}" y="{box_y + 58}" class="ticker-text">{name}</text>'
     legend_items.extend([circle, text])
-    current_legend_x += len(name) * 7.5 + 32
+    current_legend_x += item_widths[i] + gap
 
 segments_str = "\n    ".join(bar_segments)
 legend_str = "\n    ".join(legend_items)

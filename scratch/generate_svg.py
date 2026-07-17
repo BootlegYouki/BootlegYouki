@@ -93,6 +93,16 @@ def get_github_languages(username, token):
             "Visual Basic .NET": 26000
         }
 
+# Load local token if present in scratch/.env (git-ignored)
+script_dir = os.path.dirname(os.path.abspath(__file__))
+env_path = os.path.join(script_dir, ".env")
+if os.path.exists(env_path):
+    with open(env_path, "r", encoding="utf-8") as f:
+        for line in f:
+            if line.strip() and not line.startswith("#") and "=" in line:
+                key, val = line.strip().split("=", 1)
+                os.environ[key.strip()] = val.strip()
+
 # Get GITHUB_TOKEN and username from environment
 github_token = os.getenv("GITHUB_TOKEN")
 repo_slug = os.getenv("GITHUB_REPOSITORY")

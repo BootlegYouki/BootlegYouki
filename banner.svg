@@ -290,23 +290,23 @@
     <!-- Outer Border -->
     <rect x="40" y="362" width="840" height="100" class="tui-border" />
     
-    <!-- Row 1: Commits -->
-    <text x="60" y="394" class="ticker-text">Commits</text>
+    <!-- Row 1 -->
+    <text x="60" y="394" class="ticker-text">TypeScript</text>
     <rect x="180" y="382" width="480" height="14" fill="#21262d" rx="2" />
-    <rect x="180" y="382" width="413.3" height="14" fill="#ef4444" rx="2" />
-    <text x="675" y="394" class="ticker-text">86.1% (124)</text>
+    <rect x="180" y="382" width="249.6" height="14" fill="#3178c6" rx="2" />
+    <text x="675" y="394" class="ticker-text">52.0%</text>
     
-    <!-- Row 2: Pull Requests -->
-    <text x="60" y="420" class="ticker-text">PRs Created</text>
+    <!-- Row 2 -->
+    <text x="60" y="420" class="ticker-text">Rust</text>
     <rect x="180" y="408" width="480" height="14" fill="#21262d" rx="2" />
-    <rect x="180" y="408" width="46.7" height="14" fill="#58a6ff" rx="2" />
-    <text x="675" y="420" class="ticker-text">9.7% (14)</text>
+    <rect x="180" y="408" width="148.8" height="14" fill="#dea584" rx="2" />
+    <text x="675" y="420" class="ticker-text">31.0%</text>
     
-    <!-- Row 3: Issues -->
-    <text x="60" y="446" class="ticker-text">Issues Opened</text>
+    <!-- Row 3 -->
+    <text x="60" y="446" class="ticker-text">Svelte</text>
     <rect x="180" y="434" width="480" height="14" fill="#21262d" rx="2" />
-    <rect x="180" y="434" width="20.0" height="14" fill="#3bec8e" rx="2" />
-    <text x="675" y="446" class="ticker-text">4.2% (6)</text>
+    <rect x="180" y="434" width="81.6" height="14" fill="#ff3e00" rx="2" />
+    <text x="675" y="446" class="ticker-text">17.0%</text>
   </g>
 
 </svg>

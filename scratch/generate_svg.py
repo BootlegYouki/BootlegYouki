@@ -4,22 +4,49 @@ import re
 import urllib.request
 import json
 
-def get_github_stats(username, token):
+LANGUAGE_COLORS = {
+    "TypeScript": "#3178c6",
+    "JavaScript": "#f1e05a",
+    "Rust": "#dea584",
+    "Svelte": "#ff3e00",
+    "HTML": "#e34c26",
+    "CSS": "#563d7c",
+    "Python": "#3572A5",
+    "Go": "#00ADD8",
+    "C++": "#f34b7d",
+    "C#": "#178600",
+    "Java": "#b07219",
+    "Ruby": "#701516",
+    "PHP": "#4F5D95",
+    "Vue": "#41b883",
+    "Swift": "#f05138",
+    "Kotlin": "#A97BFF",
+    "Dart": "#00B4AB"
+}
+
+def get_github_languages(username, token):
     if not token:
-        # Fallback to dummy stats for local/offline testing
+        # Fallback to dummy language stats for local/offline testing
         return {
-            "totalCommitContributions": 124,
-            "totalPullRequestContributions": 14,
-            "totalIssueContributions": 6
+            "TypeScript": 520000,
+            "Rust": 310000,
+            "Svelte": 170000
         }
     
     query = """
     query($username: String!) {
       user(login: $username) {
-        contributionsCollection {
-          totalCommitContributions
-          totalPullRequestContributions
-          totalIssueContributions
+        repositories(first: 100, ownerAffiliations: OWNER, isFork: false) {
+          nodes {
+            languages(first: 10, orderBy: {field: SIZE, direction: DESC}) {
+              edges {
+                size
+                node {
+                  name
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -38,17 +65,28 @@ def get_github_stats(username, token):
             if "errors" in res_data:
                 print("GraphQL errors:", res_data["errors"])
                 return {
-                    "totalCommitContributions": 124,
-                    "totalPullRequestContributions": 14,
-                    "totalIssueContributions": 6
+                    "TypeScript": 520000,
+                    "Rust": 310000,
+                    "Svelte": 170000
                 }
-            return res_data["data"]["user"]["contributionsCollection"]
+            
+            # Aggregate language sizes
+            lang_totals = {}
+            repos = res_data["data"]["user"]["repositories"]["nodes"]
+            for repo in repos:
+                if not repo or not repo.get("languages"):
+                    continue
+                for edge in repo["languages"]["edges"]:
+                    size = edge["size"]
+                    name = edge["node"]["name"]
+                    lang_totals[name] = lang_totals.get(name, 0) + size
+            return lang_totals
     except Exception as e:
-        print(f"Error calling GitHub GraphQL API, using fallback: {e}")
+        print(f"Error calling GitHub GraphQL API for languages, using fallback: {e}")
         return {
-            "totalCommitContributions": 124,
-            "totalPullRequestContributions": 14,
-            "totalIssueContributions": 6
+            "TypeScript": 520000,
+            "Rust": 310000,
+            "Svelte": 170000
         }
 
 # Get GITHUB_TOKEN and username from environment
@@ -56,17 +94,30 @@ github_token = os.getenv("GITHUB_TOKEN")
 repo_slug = os.getenv("GITHUB_REPOSITORY")
 username = repo_slug.split("/")[0] if repo_slug else "BootlegYouki"
 
-print(f"Loading GitHub stats for {username}...")
-stats = get_github_stats(username, github_token)
+print(f"Loading GitHub language stats for {username}...")
+lang_stats = get_github_languages(username, github_token)
 
-commits = stats.get("totalCommitContributions", 0)
-prs = stats.get("totalPullRequestContributions", 0)
-issues = stats.get("totalIssueContributions", 0)
-total = commits + prs + issues
+# Sort and get top 3 languages
+top_langs = sorted(lang_stats.items(), key=lambda x: x[1], reverse=True)[:3]
+while len(top_langs) < 3:
+    top_langs.append(("None", 0))
 
-commit_pct = (commits / total) * 100 if total > 0 else 0
-pr_pct = (prs / total) * 100 if total > 0 else 0
-issue_pct = (issues / total) * 100 if total > 0 else 0
+sum_top_three = sum(val for name, val in top_langs)
+if sum_top_three == 0:
+    top_langs = [("TypeScript", 52), ("Rust", 31), ("Svelte", 17)]
+    sum_top_three = 100
+
+lang1_name, lang1_val = top_langs[0]
+lang2_name, lang2_val = top_langs[1]
+lang3_name, lang3_val = top_langs[2]
+
+lang1_pct = (lang1_val / sum_top_three) * 100
+lang2_pct = (lang2_val / sum_top_three) * 100
+lang3_pct = (lang3_val / sum_top_three) * 100
+
+lang1_color = LANGUAGE_COLORS.get(lang1_name, "#58a6ff")
+lang2_color = LANGUAGE_COLORS.get(lang2_name, "#58a6ff")
+lang3_color = LANGUAGE_COLORS.get(lang3_name, "#58a6ff")
 
 
 # Load fonts
@@ -198,9 +249,9 @@ box_h = 100
 bar_x = 180
 bar_max_w = 480
 
-commit_w = (commit_pct / 100) * bar_max_w
-pr_w = (pr_pct / 100) * bar_max_w
-issue_w = (issue_pct / 100) * bar_max_w
+lang1_w = (lang1_pct / 100) * bar_max_w
+lang2_w = (lang2_pct / 100) * bar_max_w
+lang3_w = (lang3_pct / 100) * bar_max_w
 
 stats_panel_svg = f"""
   <!-- GitHub Stats Panel -->
@@ -208,23 +259,23 @@ stats_panel_svg = f"""
     <!-- Outer Border -->
     <rect x="{box_x}" y="{box_y}" width="{box_w}" height="{box_h}" class="tui-border" />
     
-    <!-- Row 1: Commits -->
-    <text x="{box_x + 20}" y="{box_y + 32}" class="ticker-text">Commits</text>
+    <!-- Row 1 -->
+    <text x="{box_x + 20}" y="{box_y + 32}" class="ticker-text">{lang1_name}</text>
     <rect x="{bar_x}" y="{box_y + 20}" width="{bar_max_w}" height="14" fill="#21262d" rx="2" />
-    <rect x="{bar_x}" y="{box_y + 20}" width="{commit_w:.1f}" height="14" fill="#ef4444" rx="2" />
-    <text x="{bar_x + bar_max_w + 15}" y="{box_y + 32}" class="ticker-text">{commit_pct:.1f}% ({commits})</text>
+    <rect x="{bar_x}" y="{box_y + 20}" width="{lang1_w:.1f}" height="14" fill="{lang1_color}" rx="2" />
+    <text x="{bar_x + bar_max_w + 15}" y="{box_y + 32}" class="ticker-text">{lang1_pct:.1f}%</text>
     
-    <!-- Row 2: Pull Requests -->
-    <text x="{box_x + 20}" y="{box_y + 58}" class="ticker-text">PRs Created</text>
+    <!-- Row 2 -->
+    <text x="{box_x + 20}" y="{box_y + 58}" class="ticker-text">{lang2_name}</text>
     <rect x="{bar_x}" y="{box_y + 46}" width="{bar_max_w}" height="14" fill="#21262d" rx="2" />
-    <rect x="{bar_x}" y="{box_y + 46}" width="{pr_w:.1f}" height="14" fill="#58a6ff" rx="2" />
-    <text x="{bar_x + bar_max_w + 15}" y="{box_y + 58}" class="ticker-text">{pr_pct:.1f}% ({prs})</text>
+    <rect x="{bar_x}" y="{box_y + 46}" width="{lang2_w:.1f}" height="14" fill="{lang2_color}" rx="2" />
+    <text x="{bar_x + bar_max_w + 15}" y="{box_y + 58}" class="ticker-text">{lang2_pct:.1f}%</text>
     
-    <!-- Row 3: Issues -->
-    <text x="{box_x + 20}" y="{box_y + 84}" class="ticker-text">Issues Opened</text>
+    <!-- Row 3 -->
+    <text x="{box_x + 20}" y="{box_y + 84}" class="ticker-text">{lang3_name}</text>
     <rect x="{bar_x}" y="{box_y + 72}" width="{bar_max_w}" height="14" fill="#21262d" rx="2" />
-    <rect x="{bar_x}" y="{box_y + 72}" width="{issue_w:.1f}" height="14" fill="#3bec8e" rx="2" />
-    <text x="{bar_x + bar_max_w + 15}" y="{box_y + 84}" class="ticker-text">{issue_pct:.1f}% ({issues})</text>
+    <rect x="{bar_x}" y="{box_y + 72}" width="{lang3_w:.1f}" height="14" fill="{lang3_color}" rx="2" />
+    <text x="{bar_x + bar_max_w + 15}" y="{box_y + 84}" class="ticker-text">{lang3_pct:.1f}%</text>
   </g>
 """
 

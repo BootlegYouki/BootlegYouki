@@ -1,10 +1,10 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/BootlegYouki/BootlegYouki/main/banner.svg?v=7" alt="BootlegYouki" width="100%">
+  <img src="https://raw.githubusercontent.com/BootlegYouki/BootlegYouki/main/banner.svg?v=8" alt="BootlegYouki" width="100%">
 </p>
 
 <table width="100%">
   <tr>
-    <td bgcolor="#212830">
+    <td>
       <strong>[OPERATOR_INFO]</strong>
       <br><br>
       <font face="monospace">
@@ -20,7 +20,7 @@
 
 <table width="100%">
   <tr>
-    <td bgcolor="#212830">
+    <td>
       <strong>[SYSTEM_TELEMETRY]</strong>
       <br><br>
       <font face="monospace">
@@ -38,7 +38,7 @@
 
 <table width="100%">
   <tr>
-    <td bgcolor="#212830">
+    <td>
       <strong>[ACTIVE_LOGS]</strong>
       <br><br>
       <font face="monospace">
@@ -52,8 +52,6 @@
   </tr>
 </table>
 
-
-
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=BootlegYouki&show_icons=true&theme=dark&bg_color=212830&title_color=ffffff&text_color=8b949e&border_color=3D444D" alt="GitHub Stats" />
+  <img src="https://github-readme-stats.vercel.app/api?username=BootlegYouki&show_icons=true&theme=dark&bg_color=00000000&title_color=ffffff&text_color=8b949e&border_color=3D444D" alt="GitHub Stats" />
 </p>

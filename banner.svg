@@ -1,8 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="100%" height="100%" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
-    <!-- Background styling -->
-    <rect id="bg" width="960" height="420" fill="#212830" />
-
     <!-- Custom styling -->
     <style>
       @font-face {
@@ -53,6 +50,27 @@
         font-weight: bold;
         fill: #8b949e;
       }
+
+      @media (prefers-color-scheme: light) {
+        .name-bootleg {
+          fill: #24292f;
+        }
+        .name-youki {
+          fill: #57606a;
+        }
+        .tui-legend {
+          fill: #57606a;
+        }
+        .name-sub {
+          fill: #57606a;
+        }
+        .ticker-text {
+          fill: #57606a;
+        }
+        .tui-border {
+          stroke: #d0d7de;
+        }
+      }
       
       /* Animation keyframes for sliding vertical text ticker */
       @keyframes slideText1 {
@@ -85,19 +103,13 @@
     </style>
   </defs>
 
-  <!-- Background -->
-  <use href="#bg" />
-
-  <!-- Outer TUI box border -->
-  <rect x="20" y="20" width="920" height="240" class="tui-border" />
-
-  <!-- Legend element top-left: [USER] -->
-  <rect x="55" y="10" width="65" height="20" fill="#212830" />
+  <!-- Outer TUI box border with gap for legend [USER] -->
+  <path d="M 55 20 L 20 20 L 20 260 L 940 260 L 940 20 L 120 20" class="tui-border" />
   <text x="60" y="18" class="tui-legend" dominant-baseline="central">[USER]</text>
 
   <!-- Centered Name Group -->
   <g id="svgGroup" transform="translate(64, 72)">
-    <!-- Bootleg (White) -->
+    <!-- Bootleg (White/Dark text) -->
     <path class="name-bootleg" fill-rule="evenodd" d="
       M 67.2 78.12 L 54.12 91.2 L 0 91.2 L 0 7.2 L 53.4 7.2 L 66.48 20.28 L 66.48 40.44 L 58.08 48.84 L 67.2 57.96 L 67.2 78.12 Z 
       M 43.2 72 L 24 72 L 24 57.6 L 40.56 57.6 L 43.2 60.24 L 43.2 72 Z 
@@ -113,7 +125,7 @@
       M 394.32 103.32 L 394.32 92.28 L 416.4 92.28 L 416.4 97.2 L 433.68 97.2 L 433.68 86.4 L 406.68 86.4 L 393.6 73.32 L 393.6 38.28 L 406.68 25.2 L 428.4 25.2 L 436.56 33.36 L 436.56 25.2 L 456.96 25.2 L 456.96 103.32 L 443.88 116.4 L 407.4 116.4 L 394.32 103.32 Z
       M 430.92 46.8 L 433.68 49.2 L 433.68 67.92 L 416.88 67.92 L 416.88 46.8 L 430.92 46.8 Z" />
 
-    <!-- Youki (Gray) -->
+    <!-- Youki (Gray/Muted text) -->
     <path class="name-youki" fill-rule="evenodd" d="
       M 516.48 67.08 L 516.48 91.2 L 492.48 91.2 L 492.48 67.08 L 467.76 25.92 L 467.76 7.2 L 491.76 7.2 L 491.76 22.56 L 504.48 45.72 L 517.2 22.56 L 517.2 7.2 L 541.2 7.2 L 541.2 26.04 L 516.48 67.08 Z
       M 546 38.28 L 559.08 25.2 L 596.28 25.2 L 609.36 38.28 L 609.36 78.12 L 596.28 91.2 L 559.08 91.2 L 546 78.12 L 546 38.28 Z
@@ -134,10 +146,9 @@
     <text x="0" y="30" class="name-sub anim-text-3">Designer</text>
   </g>
 
-  <!-- Horizontal Scrolling Ticker Panel -->
+  <!-- Horizontal Scrolling Ticker Panel with gap for legend [TECH_STACK] -->
   <g id="svgGroupTicker" transform="translate(20, 280)">
-    <rect x="0" y="0" width="920" height="120" class="tui-border" />
-    <rect x="35" y="-10" width="115" height="20" fill="#212830" />
+    <path d="M 35 0 L 0 0 L 0 120 L 920 120 L 920 0 L 150 0" class="tui-border" />
     <text x="40" y="-1" class="tui-legend" dominant-baseline="central">[TECH_STACK]</text>
     
       <g transform="translate(30.00, 32)">

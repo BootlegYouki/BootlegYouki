@@ -1,4 +1,4 @@
-name: WakaTime Stats Update
+name: GitHub Stats Banner Update
 
 on:
   push:
@@ -13,7 +13,7 @@ permissions:
   contents: write
 
 jobs:
-  update-stats:
+  update-stats-banner:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -24,19 +24,19 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Run Update Script
+      - name: Run SVG Compiler
         env:
-          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
-        run: python scripts/update_stats.py
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scratch/generate_svg.py
 
       - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add README.md
+          git add banner.svg
           if git diff --staged --quiet; then
-            echo "No changes in stats, skipping commit."
+            echo "No changes in SVG banner, skipping commit."
           else
-            git commit -m "Update WakaTime coding stats"
+            git commit -m "Update GitHub stats in SVG banner"
             git push origin main
           fi

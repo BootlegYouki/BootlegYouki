@@ -67,13 +67,18 @@ def update_readme(stats_markdown):
 def main():
     api_key = os.getenv("WAKATIME_API_KEY")
     if not api_key:
-        print("WAKATIME_API_KEY environment variable not set.")
-        return
+        raise ValueError("WAKATIME_API_KEY environment variable is not set!")
         
     data = get_wakatime_stats(api_key)
-    if data:
-        stats_md = generate_stats_markdown(data)
-        update_readme(stats_md)
+    if not data:
+        raise RuntimeError("Failed to retrieve any data from WakaTime API (check API Key validity).")
+    
+    print("Received data from WakaTime. Keys:", list(data.keys()))
+    if "data" in data:
+        print("Data sub-keys:", list(data["data"].keys()))
+        
+    stats_md = generate_stats_markdown(data)
+    update_readme(stats_md)
 
 if __name__ == "__main__":
     main()

@@ -4,6 +4,8 @@ import json
 import base64
 import re
 
+import urllib.error
+
 def get_wakatime_stats(api_key):
     # Encode API key for Basic Auth
     auth_str = base64.b64encode(api_key.encode('utf-8')).decode('utf-8')
@@ -14,6 +16,10 @@ def get_wakatime_stats(api_key):
     try:
         with urllib.request.urlopen(req) as response:
             return json.loads(response.read().decode('utf-8'))
+    except urllib.error.HTTPError as e:
+        err_body = e.read().decode('utf-8')
+        print(f"HTTP Error fetching stats from WakaTime: {e} - Response Body: {err_body}")
+        return None
     except Exception as e:
         print(f"Error fetching stats from WakaTime: {e}")
         return None

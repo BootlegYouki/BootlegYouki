@@ -85,15 +85,6 @@
       .expo-icon {
         fill: #ffffff;
       }
-      @media (prefers-color-scheme: light) {
-        .name-word { fill: #24292f; }
-        .tui-legend { fill: #57606a; }
-        .name-sub   { fill: #24292f; }
-        .ticker-text{ fill: #57606a; }
-        .stats-bar-bg { fill: #eaeef2; }
-        .tui-border { stroke: #d0d7de; }
-        .expo-icon { fill: #000020; }
-      }
 
     </style>
   </defs>

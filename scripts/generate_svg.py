@@ -167,7 +167,7 @@ for idx, title in enumerate(titles):
         if title == "Rust":
             inner_content = f'<g fill="#ce412b">{inner_content}</g>'
         elif title == "Expo":
-            inner_content = inner_content.replace('fill="#000020"', 'fill="#ffffff"')
+            inner_content = inner_content.replace('fill="#000020"', 'class="expo-icon"')
         elif title == "PostgreSQL":
             inner_content = f'<g fill="#336791">{inner_content}</g>'
 
@@ -247,7 +247,7 @@ legend_str   = "\n    ".join(legend_items)
 stats_panel_svg = f"""
   <!-- GitHub Stats Panel -->
   <g id="svgGroupStats">
-    <rect x="{bar_x}" y="{bar_y}" width="{bar_w}" height="{bar_h}" fill="#21262d" rx="3" />
+    <rect x="{bar_x}" y="{bar_y}" width="{bar_w}" height="{bar_h}" class="stats-bar-bg" rx="3" />
     <g clip-path="url(#bar-clip)">
       {segments_str}
     </g>
@@ -317,43 +317,9 @@ smil_cx    = ";".join(f"{max(evt[t][0], evt[t][1]) + CURSOR_GAP:.2f}" for t in a
 MD_FONT_SIZE = round(1000 * 79.2 / 690, 2)  # 114.78 — matches path-data scale
 MD_BASELINE  = 91.2
 
-svg_template = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 58 920 374" width="100%" height="100%" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <defs>
-    <!-- Progress bar clip -->
-    <clipPath id="bar-clip">
-      <rect x="{bar_x}" y="{bar_y}" width="{bar_w}" height="{bar_h}" rx="3" />
-    </clipPath>
-    <!-- BootlegYouki reveal clip -->
-    <clipPath id="clip-w1" clipPathUnits="userSpaceOnUse">
-      <rect x="0" y="-20" height="150" width="0">
-        <animate attributeName="width"
-          values="{smil_cw1}"
-          keyTimes="{smil_times}"
-          calcMode="discrete"
-          dur="{DUR_S:.3f}s"
-          repeatCount="indefinite" />
-      </rect>
-    </clipPath>
-    <!-- Mark Darren reveal clip -->
-    <clipPath id="clip-w2" clipPathUnits="userSpaceOnUse">
-      <rect x="0" y="-20" height="150" width="0">
-        <animate attributeName="width"
-          values="{smil_cw2}"
-          keyTimes="{smil_times}"
-          calcMode="discrete"
-          dur="{DUR_S:.3f}s"
-          repeatCount="indefinite" />
-      </rect>
-    </clipPath>
-    <!-- Brighten filter (SQLite icon) -->
-    <filter id="icon-brighten" x="0%" y="0%" width="100%" height="100%">
-      <feComponentTransfer>
-        <feFuncR type="linear" slope="6"/>
-        <feFuncG type="linear" slope="6"/>
-        <feFuncB type="linear" slope="6"/>
-      </feComponentTransfer>
-    </filter>
-    <style>
+def get_style_block(theme_mode, nippo_base64, jb_base64):
+    if theme_mode == "dark":
+        return f"""
       @font-face {{
         font-family: 'Nippo-Bold';
         src: url('data:font/woff2;charset=utf-8;base64,{nippo_base64}') format('woff2');
@@ -397,12 +363,167 @@ svg_template = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 58 920 37
         font-weight: bold;
         fill: #8b949e;
       }}
+      .stats-bar-bg {{
+        fill: #21262d;
+      }}
+      .expo-icon {{
+        fill: #ffffff;
+      }}
+"""
+    elif theme_mode == "light":
+        return f"""
+      @font-face {{
+        font-family: 'Nippo-Bold';
+        src: url('data:font/woff2;charset=utf-8;base64,{nippo_base64}') format('woff2');
+        font-weight: 900;
+        font-style: normal;
+      }}
+      @font-face {{
+        font-family: 'JetBrains-Mono';
+        src: url('data:font/woff2;charset=utf-8;base64,{jb_base64}') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+      }}
+      .tui-border {{
+        stroke: #d0d7de;
+        stroke-width: 1.5;
+        fill: none;
+      }}
+      .name-word {{
+        fill: #24292f;
+        fill-rule: evenodd;
+      }}
+      .name-dot {{
+        fill: #ef4444;
+      }}
+      .name-sub {{
+        font-family: 'JetBrains-Mono', monospace;
+        font-size: 32px;
+        font-weight: bold;
+        fill: #24292f;
+        letter-spacing: 0.5px;
+      }}
+      .ticker-text {{
+        font-family: 'JetBrains-Mono', monospace;
+        font-size: 12px;
+        font-weight: bold;
+        fill: #57606a;
+      }}
+      .tui-legend {{
+        font-family: 'JetBrains-Mono', monospace;
+        font-size: 15px;
+        font-weight: bold;
+        fill: #57606a;
+      }}
+      .stats-bar-bg {{
+        fill: #eaeef2;
+      }}
+      .expo-icon {{
+        fill: #000020;
+      }}
+"""
+    else:  # dynamic
+        return f"""
+      @font-face {{
+        font-family: 'Nippo-Bold';
+        src: url('data:font/woff2;charset=utf-8;base64,{nippo_base64}') format('woff2');
+        font-weight: 900;
+        font-style: normal;
+      }}
+      @font-face {{
+        font-family: 'JetBrains-Mono';
+        src: url('data:font/woff2;charset=utf-8;base64,{jb_base64}') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+      }}
+      .tui-border {{
+        stroke: #3D444D;
+        stroke-width: 1.5;
+        fill: none;
+      }}
+      .name-word {{
+        fill: #ffffff;
+        fill-rule: evenodd;
+      }}
+      .name-dot {{
+        fill: #ef4444;
+      }}
+      .name-sub {{
+        font-family: 'JetBrains-Mono', monospace;
+        font-size: 32px;
+        font-weight: bold;
+        fill: #ffffff;
+        letter-spacing: 0.5px;
+      }}
+      .ticker-text {{
+        font-family: 'JetBrains-Mono', monospace;
+        font-size: 12px;
+        font-weight: bold;
+        fill: #8b949e;
+      }}
+      .tui-legend {{
+        font-family: 'JetBrains-Mono', monospace;
+        font-size: 15px;
+        font-weight: bold;
+        fill: #8b949e;
+      }}
+      .stats-bar-bg {{
+        fill: #21262d;
+      }}
+      .expo-icon {{
+        fill: #ffffff;
+      }}
       @media (prefers-color-scheme: light) {{
         .name-word {{ fill: #24292f; }}
         .tui-legend {{ fill: #57606a; }}
         .name-sub   {{ fill: #24292f; }}
         .ticker-text{{ fill: #57606a; }}
+        .stats-bar-bg {{ fill: #eaeef2; }}
+        .tui-border {{ stroke: #d0d7de; }}
+        .expo-icon {{ fill: #000020; }}
       }}
+"""
+
+def generate_banner_svg(theme_mode):
+    style_block = get_style_block(theme_mode, nippo_base64, jb_base64)
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 58 920 374" width="100%" height="100%" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <!-- Progress bar clip -->
+    <clipPath id="bar-clip">
+      <rect x="{bar_x}" y="{bar_y}" width="{bar_w}" height="{bar_h}" rx="3" />
+    </clipPath>
+    <!-- BootlegYouki reveal clip -->
+    <clipPath id="clip-w1" clipPathUnits="userSpaceOnUse">
+      <rect x="0" y="-20" height="150" width="0">
+        <animate attributeName="width"
+          values="{smil_cw1}"
+          keyTimes="{smil_times}"
+          calcMode="discrete"
+          dur="{DUR_S:.3f}s"
+          repeatCount="indefinite" />
+      </rect>
+    </clipPath>
+    <!-- Mark Darren reveal clip -->
+    <clipPath id="clip-w2" clipPathUnits="userSpaceOnUse">
+      <rect x="0" y="-20" height="150" width="0">
+        <animate attributeName="width"
+          values="{smil_cw2}"
+          keyTimes="{smil_times}"
+          calcMode="discrete"
+          dur="{DUR_S:.3f}s"
+          repeatCount="indefinite" />
+      </rect>
+    </clipPath>
+    <!-- Brighten filter (SQLite icon) -->
+    <filter id="icon-brighten" x="0%" y="0%" width="100%" height="100%">
+      <feComponentTransfer>
+        <feFuncR type="linear" slope="6"/>
+        <feFuncG type="linear" slope="6"/>
+        <feFuncB type="linear" slope="6"/>
+      </feComponentTransfer>
+    </filter>
+    <style>
+{style_block}
     </style>
   </defs>
 
@@ -440,7 +561,7 @@ svg_template = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 58 920 37
             font-family="'Nippo-Bold', sans-serif"
             font-size="{MD_FONT_SIZE}"
             font-weight="900"
-            fill="#ffffff">Mark Darren</text>
+            class="name-word">Mark Darren</text>
     </g>
 
     <!-- Cursor: solid red square, x position animated via SMIL -->
@@ -468,11 +589,13 @@ svg_template = f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="20 58 920 37
 </svg>
 """
 
-output_svg_path = os.path.join(script_dir, "..", "banner.svg")
-with open(output_svg_path, "w", encoding="utf-8") as f:
-    f.write(svg_template)
-
-print("SVG Compiled Successfully to static layout!")
+# Compile and write all three versions
+for mode, filename in [("dynamic", "banner.svg"), ("light", "banner-light.svg"), ("dark", "banner-dark.svg")]:
+    svg_content = generate_banner_svg(mode)
+    output_path = os.path.join(script_dir, "..", filename)
+    with open(output_path, "w", encoding="utf-8") as f:
+        f.write(svg_content)
+    print(f"SVG Compiled Successfully to {filename} ({mode} mode)")
 
 # Bump cache-busting version in README.md
 readme_path = os.path.join(script_dir, "..", "README.md")

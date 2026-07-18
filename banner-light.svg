@@ -49,12 +49,12 @@
         font-style: normal;
       }
       .tui-border {
-        stroke: #3D444D;
+        stroke: #d0d7de;
         stroke-width: 1.5;
         fill: none;
       }
       .name-word {
-        fill: #ffffff;
+        fill: #24292f;
         fill-rule: evenodd;
       }
       .name-dot {
@@ -64,35 +64,26 @@
         font-family: 'JetBrains-Mono', monospace;
         font-size: 32px;
         font-weight: bold;
-        fill: #ffffff;
+        fill: #24292f;
         letter-spacing: 0.5px;
       }
       .ticker-text {
         font-family: 'JetBrains-Mono', monospace;
         font-size: 12px;
         font-weight: bold;
-        fill: #8b949e;
+        fill: #57606a;
       }
       .tui-legend {
         font-family: 'JetBrains-Mono', monospace;
         font-size: 15px;
         font-weight: bold;
-        fill: #8b949e;
+        fill: #57606a;
       }
       .stats-bar-bg {
-        fill: #21262d;
+        fill: #eaeef2;
       }
       .expo-icon {
-        fill: #ffffff;
-      }
-      @media (prefers-color-scheme: light) {
-        .name-word { fill: #24292f; }
-        .tui-legend { fill: #57606a; }
-        .name-sub   { fill: #24292f; }
-        .ticker-text{ fill: #57606a; }
-        .stats-bar-bg { fill: #eaeef2; }
-        .tui-border { stroke: #d0d7de; }
-        .expo-icon { fill: #000020; }
+        fill: #000020;
       }
 
     </style>

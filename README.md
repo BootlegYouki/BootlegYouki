@@ -1,3 +1,3 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/BootlegYouki/BootlegYouki/main/banner.svg?v=49" alt="BootlegYouki" width="100%">
+  <img src="https://raw.githubusercontent.com/BootlegYouki/BootlegYouki/main/banner.svg?v=50" alt="BootlegYouki" width="100%">
 </p>

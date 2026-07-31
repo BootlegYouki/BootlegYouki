@@ -238,20 +238,20 @@
   <g id="svgGroupStats">
     <rect x="20" y="372" width="920" height="10" class="stats-bar-bg" rx="3" />
     <g clip-path="url(#bar-clip)">
-      <rect x="20.00" y="372" width="227.99" height="10" fill="#3178c6" />
-    <rect x="247.99" y="372" width="219.94" height="10" fill="#e34c26" />
-    <rect x="467.93" y="372" width="147.86" height="10" fill="#f1e05a" />
-    <rect x="615.79" y="372" width="115.76" height="10" fill="#ff3e00" />
-    <rect x="731.56" y="372" width="100.52" height="10" fill="#563d7c" />
-    <rect x="832.08" y="372" width="80.21" height="10" fill="#4F5D95" />
-    <rect x="912.29" y="372" width="27.71" height="10" fill="#8b949e" />
+      <rect x="20.00" y="372" width="228.07" height="10" fill="#3178c6" />
+    <rect x="248.07" y="372" width="219.44" height="10" fill="#e34c26" />
+    <rect x="467.51" y="372" width="147.52" height="10" fill="#f1e05a" />
+    <rect x="615.03" y="372" width="115.50" height="10" fill="#ff3e00" />
+    <rect x="730.53" y="372" width="100.29" height="10" fill="#563d7c" />
+    <rect x="830.82" y="372" width="80.03" height="10" fill="#4F5D95" />
+    <rect x="910.85" y="372" width="29.15" height="10" fill="#8b949e" />
     </g>
     <circle cx="48.75" cy="402" r="5" fill="#3178c6" />
     <text x="60.75" y="406" class="ticker-text">TypeScript 24.8%</text>
     <circle cx="206.75" cy="402" r="5" fill="#e34c26" />
     <text x="218.75" y="406" class="ticker-text">HTML 23.9%</text>
     <circle cx="319.75" cy="402" r="5" fill="#f1e05a" />
-    <text x="331.75" y="406" class="ticker-text">JavaScript 16.1%</text>
+    <text x="331.75" y="406" class="ticker-text">JavaScript 16.0%</text>
     <circle cx="477.75" cy="402" r="5" fill="#ff3e00" />
     <text x="489.75" y="406" class="ticker-text">Svelte 12.6%</text>
     <circle cx="605.75" cy="402" r="5" fill="#563d7c" />
@@ -259,7 +259,7 @@
     <circle cx="711.25" cy="402" r="5" fill="#4F5D95" />
     <text x="723.25" y="406" class="ticker-text">PHP 8.7%</text>
     <circle cx="816.75" cy="402" r="5" fill="#8b949e" />
-    <text x="828.75" y="406" class="ticker-text">Other 3.0%</text>
+    <text x="828.75" y="406" class="ticker-text">Other 3.2%</text>
   </g>
 
 </svg>

@@ -229,28 +229,31 @@
   <g id="svgGroupStats">
     <rect x="20" y="372" width="920" height="10" class="stats-bar-bg" rx="3" />
     <g clip-path="url(#bar-clip)">
-      <rect x="20.00" y="372" width="228.20" height="10" fill="#3178c6" />
-    <rect x="248.20" y="372" width="219.40" height="10" fill="#e34c26" />
-    <rect x="467.60" y="372" width="147.49" height="10" fill="#f1e05a" />
-    <rect x="615.09" y="372" width="115.48" height="10" fill="#ff3e00" />
-    <rect x="730.57" y="372" width="100.27" height="10" fill="#563d7c" />
-    <rect x="830.84" y="372" width="80.01" height="10" fill="#4F5D95" />
-    <rect x="910.85" y="372" width="29.15" height="10" fill="#8b949e" />
+      <rect x="20.00" y="372" width="196.02" height="10" fill="#3178c6" />
+    <rect x="216.02" y="372" width="188.45" height="10" fill="#e34c26" />
+    <rect x="404.47" y="372" width="132.64" height="10" fill="#f1e05a" />
+    <rect x="537.11" y="372" width="112.27" height="10" fill="#8b949e" />
+    <rect x="649.38" y="372" width="99.19" height="10" fill="#ff3e00" />
+    <rect x="748.57" y="372" width="86.13" height="10" fill="#563d7c" />
+    <rect x="834.70" y="372" width="68.73" height="10" fill="#4F5D95" />
+    <rect x="903.43" y="372" width="36.57" height="10" fill="#8b949e" />
     </g>
-    <circle cx="48.75" cy="402" r="5" fill="#3178c6" />
-    <text x="60.75" y="406" class="ticker-text">TypeScript 24.8%</text>
-    <circle cx="206.75" cy="402" r="5" fill="#e34c26" />
-    <text x="218.75" y="406" class="ticker-text">HTML 23.8%</text>
-    <circle cx="319.75" cy="402" r="5" fill="#f1e05a" />
-    <text x="331.75" y="406" class="ticker-text">JavaScript 16.0%</text>
-    <circle cx="477.75" cy="402" r="5" fill="#ff3e00" />
-    <text x="489.75" y="406" class="ticker-text">Svelte 12.6%</text>
-    <circle cx="605.75" cy="402" r="5" fill="#563d7c" />
-    <text x="617.75" y="406" class="ticker-text">CSS 10.9%</text>
-    <circle cx="711.25" cy="402" r="5" fill="#4F5D95" />
-    <text x="723.25" y="406" class="ticker-text">PHP 8.7%</text>
-    <circle cx="816.75" cy="402" r="5" fill="#8b949e" />
-    <text x="828.75" y="406" class="ticker-text">Other 3.2%</text>
+    <circle cx="-4.0" cy="402" r="5" fill="#3178c6" />
+    <text x="8.0" y="406" class="ticker-text">TypeScript 21.3%</text>
+    <circle cx="154.0" cy="402" r="5" fill="#e34c26" />
+    <text x="166.0" y="406" class="ticker-text">HTML 20.5%</text>
+    <circle cx="267.0" cy="402" r="5" fill="#f1e05a" />
+    <text x="279.0" y="406" class="ticker-text">JavaScript 14.4%</text>
+    <circle cx="425.0" cy="402" r="5" fill="#8b949e" />
+    <text x="437.0" y="406" class="ticker-text">QML 12.2%</text>
+    <circle cx="530.5" cy="402" r="5" fill="#ff3e00" />
+    <text x="542.5" y="406" class="ticker-text">Svelte 10.8%</text>
+    <circle cx="658.5" cy="402" r="5" fill="#563d7c" />
+    <text x="670.5" y="406" class="ticker-text">CSS 9.4%</text>
+    <circle cx="764.0" cy="402" r="5" fill="#4F5D95" />
+    <text x="776.0" y="406" class="ticker-text">PHP 7.5%</text>
+    <circle cx="869.5" cy="402" r="5" fill="#8b949e" />
+    <text x="881.5" y="406" class="ticker-text">Other 4.0%</text>
   </g>
 
 </svg>

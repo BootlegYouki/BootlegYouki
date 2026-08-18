@@ -229,15 +229,15 @@
   <g id="svgGroupStats">
     <rect x="20" y="372" width="920" height="10" class="stats-bar-bg" rx="3" />
     <g clip-path="url(#bar-clip)">
-      <rect x="20.00" y="372" width="189.01" height="10" fill="#3178c6" />
-    <rect x="209.01" y="372" width="181.54" height="10" fill="#e34c26" />
-    <rect x="390.55" y="372" width="127.78" height="10" fill="#f1e05a" />
-    <rect x="518.33" y="372" width="116.04" height="10" fill="#8b949e" />
-    <rect x="634.36" y="372" width="95.55" height="10" fill="#ff3e00" />
-    <rect x="729.92" y="372" width="82.97" height="10" fill="#563d7c" />
-    <rect x="812.89" y="372" width="66.21" height="10" fill="#4F5D95" />
-    <rect x="879.10" y="372" width="29.68" height="10" fill="#dea584" />
-    <rect x="908.78" y="372" width="31.22" height="10" fill="#8b949e" />
+      <rect x="20.00" y="372" width="188.91" height="10" fill="#3178c6" />
+    <rect x="208.91" y="372" width="181.45" height="10" fill="#e34c26" />
+    <rect x="390.36" y="372" width="127.71" height="10" fill="#f1e05a" />
+    <rect x="518.07" y="372" width="115.98" height="10" fill="#8b949e" />
+    <rect x="634.05" y="372" width="95.50" height="10" fill="#ff3e00" />
+    <rect x="729.55" y="372" width="82.93" height="10" fill="#563d7c" />
+    <rect x="812.48" y="372" width="66.17" height="10" fill="#4F5D95" />
+    <rect x="878.65" y="372" width="29.67" height="10" fill="#dea584" />
+    <rect x="908.32" y="372" width="31.68" height="10" fill="#8b949e" />
     </g>
     <circle cx="-60.5" cy="402" r="5" fill="#3178c6" />
     <text x="-48.5" y="406" class="ticker-text">TypeScript 20.5%</text>

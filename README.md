@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/BootlegYouki/BootlegYouki/main/banner-dark.svg?v=234">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/BootlegYouki/BootlegYouki/main/banner-light.svg?v=234">
-    <img alt="BootlegYouki" src="https://raw.githubusercontent.com/BootlegYouki/BootlegYouki/main/banner.svg?v=234" width="100%">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/BootlegYouki/BootlegYouki/main/banner-dark.svg?v=235">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/BootlegYouki/BootlegYouki/main/banner-light.svg?v=235">
+    <img alt="BootlegYouki" src="https://raw.githubusercontent.com/BootlegYouki/BootlegYouki/main/banner.svg?v=235" width="100%">
   </picture>
 </p>

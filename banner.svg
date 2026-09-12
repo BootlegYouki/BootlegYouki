@@ -238,22 +238,22 @@
   <g id="svgGroupStats">
     <rect x="20" y="372" width="920" height="10" class="stats-bar-bg" rx="3" />
     <g clip-path="url(#bar-clip)">
-      <rect x="20.00" y="372" width="187.20" height="10" fill="#3178c6" />
-    <rect x="207.20" y="372" width="179.81" height="10" fill="#e34c26" />
-    <rect x="387.01" y="372" width="126.55" height="10" fill="#f1e05a" />
-    <rect x="513.56" y="372" width="119.59" height="10" fill="#8b949e" />
-    <rect x="633.15" y="372" width="94.64" height="10" fill="#ff3e00" />
-    <rect x="727.79" y="372" width="82.18" height="10" fill="#563d7c" />
-    <rect x="809.97" y="372" width="65.57" height="10" fill="#4F5D95" />
-    <rect x="875.55" y="372" width="29.40" height="10" fill="#dea584" />
-    <rect x="904.95" y="372" width="35.05" height="10" fill="#8b949e" />
+      <rect x="20.00" y="372" width="186.94" height="10" fill="#3178c6" />
+    <rect x="206.94" y="372" width="179.56" height="10" fill="#e34c26" />
+    <rect x="386.51" y="372" width="126.38" height="10" fill="#f1e05a" />
+    <rect x="512.89" y="372" width="119.37" height="10" fill="#8b949e" />
+    <rect x="632.26" y="372" width="94.51" height="10" fill="#ff3e00" />
+    <rect x="726.77" y="372" width="82.07" height="10" fill="#563d7c" />
+    <rect x="808.83" y="372" width="65.48" height="10" fill="#4F5D95" />
+    <rect x="874.32" y="372" width="29.36" height="10" fill="#dea584" />
+    <rect x="903.68" y="372" width="36.32" height="10" fill="#8b949e" />
     </g>
     <circle cx="-60.5" cy="402" r="5" fill="#3178c6" />
     <text x="-48.5" y="406" class="ticker-text">TypeScript 20.3%</text>
     <circle cx="97.5" cy="402" r="5" fill="#e34c26" />
     <text x="109.5" y="406" class="ticker-text">HTML 19.5%</text>
     <circle cx="210.5" cy="402" r="5" fill="#f1e05a" />
-    <text x="222.5" y="406" class="ticker-text">JavaScript 13.8%</text>
+    <text x="222.5" y="406" class="ticker-text">JavaScript 13.7%</text>
     <circle cx="368.5" cy="402" r="5" fill="#8b949e" />
     <text x="380.5" y="406" class="ticker-text">QML 13.0%</text>
     <circle cx="474.0" cy="402" r="5" fill="#ff3e00" />
@@ -265,7 +265,7 @@
     <circle cx="813.0" cy="402" r="5" fill="#dea584" />
     <text x="825.0" y="406" class="ticker-text">Rust 3.2%</text>
     <circle cx="926.0" cy="402" r="5" fill="#8b949e" />
-    <text x="938.0" y="406" class="ticker-text">Other 3.8%</text>
+    <text x="938.0" y="406" class="ticker-text">Other 3.9%</text>
   </g>
 
 </svg>

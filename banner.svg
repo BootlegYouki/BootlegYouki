@@ -238,18 +238,18 @@
   <g id="svgGroupStats">
     <rect x="20" y="372" width="920" height="10" class="stats-bar-bg" rx="3" />
     <g clip-path="url(#bar-clip)">
-      <rect x="20.00" y="372" width="215.75" height="10" fill="#e34c26" />
-    <rect x="235.75" y="372" width="209.64" height="10" fill="#3178c6" />
-    <rect x="445.39" y="372" width="130.99" height="10" fill="#f1e05a" />
-    <rect x="576.37" y="372" width="110.74" height="10" fill="#563d7c" />
-    <rect x="687.12" y="372" width="98.39" height="10" fill="#ff3e00" />
-    <rect x="785.50" y="372" width="84.05" height="10" fill="#4F5D95" />
-    <rect x="869.55" y="372" width="33.13" height="10" fill="#dea584" />
-    <rect x="902.68" y="372" width="13.12" height="10" fill="#3572A5" />
-    <rect x="915.80" y="372" width="24.20" height="10" fill="#8b949e" />
+      <rect x="20.00" y="372" width="215.52" height="10" fill="#e34c26" />
+    <rect x="235.52" y="372" width="209.42" height="10" fill="#3178c6" />
+    <rect x="444.94" y="372" width="130.85" height="10" fill="#f1e05a" />
+    <rect x="575.79" y="372" width="110.63" height="10" fill="#563d7c" />
+    <rect x="686.41" y="372" width="98.29" height="10" fill="#ff3e00" />
+    <rect x="784.70" y="372" width="83.96" height="10" fill="#4F5D95" />
+    <rect x="868.66" y="372" width="33.09" height="10" fill="#dea584" />
+    <rect x="901.75" y="372" width="14.08" height="10" fill="#3572A5" />
+    <rect x="915.83" y="372" width="24.17" height="10" fill="#8b949e" />
     </g>
     <circle cx="-71.75" cy="402" r="5" fill="#e34c26" />
-    <text x="-59.75" y="406" class="ticker-text">HTML 23.5%</text>
+    <text x="-59.75" y="406" class="ticker-text">HTML 23.4%</text>
     <circle cx="41.25" cy="402" r="5" fill="#3178c6" />
     <text x="53.25" y="406" class="ticker-text">TypeScript 22.8%</text>
     <circle cx="199.25" cy="402" r="5" fill="#f1e05a" />
@@ -263,7 +263,7 @@
     <circle cx="696.25" cy="402" r="5" fill="#dea584" />
     <text x="708.25" y="406" class="ticker-text">Rust 3.6%</text>
     <circle cx="809.25" cy="402" r="5" fill="#3572A5" />
-    <text x="821.25" y="406" class="ticker-text">Python 1.4%</text>
+    <text x="821.25" y="406" class="ticker-text">Python 1.5%</text>
     <circle cx="937.25" cy="402" r="5" fill="#8b949e" />
     <text x="949.25" y="406" class="ticker-text">Other 2.6%</text>
   </g>
